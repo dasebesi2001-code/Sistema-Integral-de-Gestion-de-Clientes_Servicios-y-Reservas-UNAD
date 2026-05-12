@@ -1,7 +1,7 @@
 
-import json
-import os 
 from abc import ABC, abstractmethod 
+from servicios_excepeciones import ValidacionError, ProyectoError
+
 class servicio(ABC):
     def __init__(self, id, nombre, precio, cantidad):
         self.__id = id
@@ -14,7 +14,7 @@ class servicio(ABC):
         return self.__id
     @id.setter
     def id(self, value):
-        raise AttributeError("El ID no se puede modificar después de la creación del producto.")    
+        raise ValidacionError("El ID no se puede modificar después de la creación del producto.")    
     @abstractmethod
     def calcular_costo_total(self):
         pass
@@ -24,29 +24,29 @@ class alquilerEquipo(servicio):
         super().__init__(id, nombre, precio, cantidad)
         self.duracion = duracion
         if self.duracion <= 0:
-            raise ValueError("La duración del alquiler debe ser mayor que cero.")
+            raise ValidacionError("La duración del alquiler debe ser mayor que cero.")
         elif self.duracion > 2:
-            raise ValueError("La duración del alquiler no puede ser mayor que dos días.")
+            raise ValidacionError("La duración del alquiler no puede ser mayor que dos días.")
     def calcular_costo_total(self):
         alquiler_total = self.precio * self.duracion       
         return alquiler_total
         
       
-class alquiler_equipos(servicio):
+class reservas_de_Salas (servicio):
     def __init__(self, id, nombre, precio, cantidad, duracion):
         super().__init__(id, nombre, precio, cantidad)
         self.duracion = duracion
         if self.duracion <= 0:
-            raise ValueError("La duración del alquiler debe ser mayor que cero.")  
+            raise ValidacionError("La duración del alquiler debe ser mayor que cero.")  
         elif self.duracion > 24:
-            raise ValueError("La duración del alquiler no puede ser mayor que 24 horas.")
+            raise ValidacionError("La duración del alquiler no puede ser mayor que 24 horas.")
     def calcular_costo_total(self):
         alquiler_total = self.precio * self.duracion       
         return alquiler_total
         
 class asesoramiento(servicio):
-    def __init__(self, id, nombre, precio, tipo):
-        super().__init__(id, nombre, precio)
+    def __init__(self, id, nombre, precio, tipo, cantidad):
+        super().__init__(id, nombre, precio, cantidad)
         self.tipo = tipo
 
     def calcular_costo_total(self):
@@ -61,7 +61,7 @@ class asesoramiento(servicio):
         recargo = tarifas.get(self.tipo.lower(), 0)
         
         # El total sería el precio base más el recargo del tipo
-        return (self.precio + recargo) 
+        return (self.precio + recargo)* self.cantidad 
     
     
     
