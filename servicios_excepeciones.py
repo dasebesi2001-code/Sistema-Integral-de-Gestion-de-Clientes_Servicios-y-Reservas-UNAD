@@ -1,3 +1,4 @@
+import logging
 class ProyectoError(Exception):
     """clase base para las excepciones en este módulo."""
     pass    
