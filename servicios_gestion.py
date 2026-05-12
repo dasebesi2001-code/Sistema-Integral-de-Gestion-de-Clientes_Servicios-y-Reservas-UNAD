@@ -4,7 +4,7 @@ import os
 from servicio_modelos import servicio
 from servicios_excepeciones import ValidacionError, ProyectoError
 
-logging.basicCongig(
+logging.basicConfig(
     filename='errores_sistemas.log',
     level=logging.ERROR,
     format='%(asctime)s - %(levelname)s - %(message)s'
