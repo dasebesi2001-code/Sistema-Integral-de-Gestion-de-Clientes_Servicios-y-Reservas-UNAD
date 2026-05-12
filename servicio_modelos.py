@@ -57,7 +57,7 @@ class asesoramiento(servicio):
             "operativo": 120000
         }
         
-        # .get() busca el tipo; si no existe, usa 0 por defecto
+        # selecciona el recargo basado en el tipo de asesoramiento, si el tipo no está en las tarifas, se asume un recargo de 0
         recargo = tarifas.get(self.tipo.lower(), 0)
         
         # El total sería el precio base más el recargo del tipo
