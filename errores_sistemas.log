@@ -1,0 +1,11 @@
+2026-05-12 23:32:20,643 - ERROR - error inesperado al agregar reserva: id_reserva=1:isinstance() arg 2 must be a type, a tuple of types, or a union
+2026-05-12 23:32:20,644 - ERROR - error inesperado al agregar reserva: id_reserva=2:isinstance() arg 2 must be a type, a tuple of types, or a union
+2026-05-12 23:32:20,644 - ERROR - Operación 6 fallida: La duración del alquiler no puede ser mayor que dos días.
+2026-05-12 23:36:18,839 - ERROR - error inesperado al agregar reserva: id_reserva=1:isinstance() arg 2 must be a type, a tuple of types, or a union
+2026-05-12 23:36:18,840 - ERROR - error inesperado al agregar reserva: id_reserva=2:isinstance() arg 2 must be a type, a tuple of types, or a union
+2026-05-12 23:36:18,840 - ERROR - Operación 6 fallida: La duración del alquiler no puede ser mayor que dos días.
+2026-05-12 23:36:18,840 - ERROR - Operación 7 fallida: El ID no se puede modificar después de la creación del cliente.
+2026-05-12 23:38:49,918 - ERROR - error inesperado al agregar reserva: id_reserva=1:isinstance() arg 2 must be a type, a tuple of types, or a union
+2026-05-12 23:38:49,918 - ERROR - error inesperado al agregar reserva: id_reserva=2:isinstance() arg 2 must be a type, a tuple of types, or a union
+2026-05-12 23:38:49,918 - ERROR - Operación 6 fallida: La duración del alquiler no puede ser mayor que dos días.
+2026-05-12 23:38:49,918 - ERROR - Operación 7 fallida: El ID no se puede modificar después de la creación del cliente.

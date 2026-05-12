@@ -1,0 +1,67 @@
+
+from abc import ABC, abstractmethod 
+from servicios_excepeciones import ValidacionError, ProyectoError
+
+class servicio(ABC):
+    def __init__(self, id, nombre, precio, cantidad):
+        self.__id = id
+        self.__nombre = nombre
+        self.precio = precio
+        self.cantidad = cantidad
+        
+    @property
+    def id(self):
+        return self.__id
+    @id.setter
+    def id(self, value):
+        raise ValidacionError("El ID no se puede modificar después de la creación del producto.")    
+    @abstractmethod
+    def calcular_costo_total(self):
+        pass
+
+class alquilerEquipo(servicio):
+    def __init__(self, id, nombre, precio, cantidad, duracion):
+        super().__init__(id, nombre, precio, cantidad)
+        self.duracion = duracion
+        if self.duracion <= 0:
+            raise ValidacionError("La duración del alquiler debe ser mayor que cero.")
+        elif self.duracion > 2:
+            raise ValidacionError("La duración del alquiler no puede ser mayor que dos días.")
+    def calcular_costo_total(self):
+        alquiler_total = self.precio * self.duracion       
+        return alquiler_total
+        
+      
+class reservas_de_Salas (servicio):
+    def __init__(self, id, nombre, precio, cantidad, duracion):
+        super().__init__(id, nombre, precio, cantidad)
+        self.duracion = duracion
+        if self.duracion <= 0:
+            raise ValidacionError("La duración del alquiler debe ser mayor que cero.")  
+        elif self.duracion > 24:
+            raise ValidacionError("La duración del alquiler no puede ser mayor que 24 horas.")
+    def calcular_costo_total(self):
+        alquiler_total = self.precio * self.duracion       
+        return alquiler_total
+        
+class asesoramiento(servicio):
+    def __init__(self, id, nombre, precio, tipo, cantidad):
+        super().__init__(id, nombre, precio, cantidad)
+        self.tipo = tipo
+
+    def calcular_costo_total(self):
+        tarifas = {
+            "técnico": 100000,
+            "estratégico": 150000,
+            "táctico": 100000,
+            "operativo": 120000
+        }
+        
+        # selecciona el recargo basado en el tipo de asesoramiento, si el tipo no está en las tarifas, se asume un recargo de 0
+        recargo = tarifas.get(self.tipo.lower(), 0)
+        
+        # El total sería el precio base más el recargo del tipo
+        return (self.precio + recargo)* self.cantidad 
+    
+    
+    
