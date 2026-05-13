@@ -9,3 +9,9 @@
 2026-05-12 23:38:49,918 - ERROR - error inesperado al agregar reserva: id_reserva=2:isinstance() arg 2 must be a type, a tuple of types, or a union
 2026-05-12 23:38:49,918 - ERROR - Operación 6 fallida: La duración del alquiler no puede ser mayor que dos días.
 2026-05-12 23:38:49,918 - ERROR - Operación 7 fallida: El ID no se puede modificar después de la creación del cliente.
+2026-05-12 19:29:44,289 - ERROR - Error esperado - correo inválido: El correo 'correo_invalido' no tiene un formato válido.
+2026-05-12 19:29:44,291 - ERROR - Error esperado - nombre corto: El nombre 'Jo' no es válido. Debe tener al menos 3 caracteres.
+2026-05-12 19:29:44,308 - ERROR - Error esperado - tipo equipo inválido: Tipo de equipo 'dron' no válido. Tipos permitidos: servidor, proyector, camara, tablet, computador
+2026-05-12 19:29:44,363 - ERROR - Error esperado - precio negativo: El precio debe ser un número positivo. Se recibió: -5000
+2026-05-12 19:29:44,802 - ERROR - Error al cancelar reserva 1001: No se puede cancelar una reserva en estado 'procesada'.
+2026-05-12 19:29:44,808 - ERROR - Error al agregar reserva: id_reserva=1004 | Error al confirmar la reserva 1004: El servicio 'Asesoría Técnica' no está disponible.
